@@ -13,10 +13,15 @@ pipeline {
                 sh 'pnpm build'
             }
         }
-        // stage('Deploy') {
-        //     steps {
-        //         // Add deployment steps here, e.g., using AWS CLI or S3 plugin
-        //     }
-        // }
+        stage('Deploy') {
+            steps {
+                script {
+                    foo = "bar"
+                    distDir = "./dist/browser/."
+                    htmlDir = "/usr/share/nginx/html/hex2048.stetsen.co/browser"
+                }
+                sh "cp -a ${distDir} ${htmlDir}"
+            }
+        }
     }
 }
