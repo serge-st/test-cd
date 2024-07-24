@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    TESTING 
+</body>
+</html>
+
+sh .acme.sh/acme.sh --install-cert -d hex2048.stetsen.co \
+--key-file       /etc/nginx/certs/hex2048.stetsen.co/privkey.pem  \
+--fullchain-file /etc/nginx/certs/hex2048.stetsen.co/fullchain.pem \
+--reloadcmd     "sudo systemctl restart nginx"
+
+ssl_certificate  /etc/nginx/certs/hex2048.stetsen.co/fullchain.pem;
+ssl_certificate_key /etc/nginx/certs/hex2048.stetsen.co/privkey.pem;
