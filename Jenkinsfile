@@ -2,20 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                echo 'Building..'
+                // git branch: 'main', url: 'https://github.com/serge-st/test-cd.git'
+                sh 'echo HELLO'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         sh 'pnpm install'
+        //         sh 'pnpm build'
+        //     }
+        // }
+        // stage('Deploy') {
+        //     steps {
+        //         // Add deployment steps here, e.g., using AWS CLI or S3 plugin
+        //     }
+        // }
     }
 }
