@@ -9,19 +9,17 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'pnpm install'
-                sh 'pnpm build'
+                sh 'pnpm build:cicd"'
             }
         }
-        stage('Deploy') {
-            steps {
-                script {
-                    foo = "bar"
-                    distDir = "./dist/browser/."
-                    htmlDir = "/usr/share/nginx/html/hex2048.stetsen.co/browser"
-                }
-                sh "cp -a ${distDir} ${htmlDir}"
-            }
-        }
+        // stage('Deploy') {
+        //     steps {
+        //         script {
+        //             distDir = "./dist/browser/."
+        //             htmlDir = "/usr/share/nginx/html/hex2048.stetsen.co/browser"
+        //         }
+        //         sh "cp -a ${distDir} ${htmlDir}"
+        //     }
+        // }
     }
 }
